@@ -1,15 +1,23 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { LancamentoService } from '../services/LancamentoService';
 
-export class CileoController {
+import { LancamentoContaLegado } from '../models/LacamentoContaLegado';
+
+@Component({
+    selector: 'app',
+    templateUrl: './index.html'
+  })
+export class CileoController implements OnInit {
 
     private _lancamentoService = new LancamentoService();
 
-    constructor() {
+    public _lancamentoContaLegado = new LancamentoContaLegado[];
 
-        this.buscarLacamentos();
+    constructor() {
     }
 
-    buscarLacamentos() {
+    ngOnInit() {
 
         this._lancamentoService
             .buscarLacamentos(res => {
@@ -20,11 +28,7 @@ export class CileoController {
                     throw new Error(res.statusText);
                 }
             })
-            .then(lancamentos => {
-
-            //TODO: 
-
-            })
+            .then(lancamentos => this._lancamentoContaLegado)
 
         
     }

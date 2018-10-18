@@ -11,6 +11,32 @@
     
     <h1 class="text-center">Cielo</h1>
     
+    
+    <table border="1">
+        <tbody>
+            <tr>
+                <td colspan="1">Data do lançamento</td>
+                <td colspan="1">Descrição</td>
+                <td colspan="1">Número</td>
+                <td colspan="1">Situação</td>
+                <td colspan="1">Data de confirmação</td>
+                <td colspan="1">Dados bancários</td>
+                <td colspan="1"> Valor final</td>
+            </tr>
+
+            <tr  *ngFor="let lancamento of _lancamentoContaLegado">
+                <td>{{lancamento.dataDeLancamento}}</td>
+                <td>{{lancamento.descricao}}</td>
+                <td>{{lancamento.numero}}</td>
+                <td>{{lancamento.situacao}}</td>
+                <td>{{lancamento.dataDeConfirmacao}}</td>
+                <td>{{lancamento.dadosBancarios}}</td>
+                <td>R$ {{lancamento.valorFinal}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+
 
     <script src="lib/jquery.min.js"></script>
     <script src="lib/system.js"></script>
